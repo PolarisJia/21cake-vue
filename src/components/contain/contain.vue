@@ -15,11 +15,21 @@
 </template>
 
 <script>
+// import {mapMutations} from 'vuex'
 export default {
   data () {
     return {
       active: 0
     }
+  },
+  methods: {
+    // tabbarChange () {
+    //   console.log(this.active)
+    //   this.setTabbarActive(this.active)
+    // },
+    // ...mapMutations({
+    //   setTabbarActive: 'SET_TABBAR_ACTIVE'
+    // })
   }
 }
 </script>

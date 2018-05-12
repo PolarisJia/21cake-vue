@@ -42,6 +42,7 @@
 <script>
 import Contain from 'components/contain/contain'
 import {queryIndexInfo} from 'api/index'
+// import {mapGetters} from 'vuex'
 
 export default {
   data () {
@@ -54,7 +55,8 @@ export default {
       classification: [],
       floorV2: [],
       activity: [],
-      magazine: []
+      magazine: [],
+      active: 0
     }
   },
   methods: {
@@ -68,10 +70,16 @@ export default {
         this.activity = res.data[4].data
         this.magazine = res.data[5].data
       })
+      console.log(this.tabbarActive)
     }
   },
   created () {
     this._queryIndexInfo()
+  },
+  computed: {
+    // ...mapGetters({
+    //   tabbarActive: 'setTabbarActive'
+    // })
   },
   components: {
     Contain
@@ -114,16 +122,14 @@ export default {
     span,a
       display inline-block
     span
-      width 40px
-      height 20px
+      padding 0 8px
       border-radius 10px
       background-color $accentColor
       color $iconColor
-      text-align center
       line-height 20px
       margin-top 5px
   .product
-    box-shadow 0 0 8px 0 rgba(194, 194, 194, .1)
+    box-shadow 0 0 8px 0 rgba(194, 194, 194, .3)
     border-radius 6px
     margin-bottom 20px
     overflow hidden
