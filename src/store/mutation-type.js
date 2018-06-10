@@ -1,1 +1,1 @@
-export const SET_TABBAR_ACTIVE = 0
+export const SET_TABBAR_ACTIVE = 'SET_TABBAR_ACTIVE'

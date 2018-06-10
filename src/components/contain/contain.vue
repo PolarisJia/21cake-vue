@@ -4,7 +4,7 @@
       <slot></slot>
     </main>
     <footer>
-      <van-tabbar v-model="active">
+      <van-tabbar v-model="active" @change="tabbarChange">
         <van-tabbar-item icon="home">首页</van-tabbar-item>
         <van-tabbar-item icon="wap-nav">分类</van-tabbar-item>
         <van-tabbar-item icon="cart">购物车</van-tabbar-item>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-// import {mapMutations} from 'vuex'
+import {mapMutations} from 'vuex'
 export default {
   data () {
     return {
@@ -23,13 +23,12 @@ export default {
     }
   },
   methods: {
-    // tabbarChange () {
-    //   console.log(this.active)
-    //   this.setTabbarActive(this.active)
-    // },
-    // ...mapMutations({
-    //   setTabbarActive: 'SET_TABBAR_ACTIVE'
-    // })
+    tabbarChange () {
+      this.setTabbarActive(this.active)
+    },
+    ...mapMutations({
+      setTabbarActive: 'SET_TABBAR_ACTIVE'
+    })
   }
 }
 </script>

@@ -1,5 +1,6 @@
 <template>
   <Contain>
+    <Search></Search>
     <van-swipe :autoplay="5000">
       <van-swipe-item v-for="(img, i) in sliders" :key="i">
         <img v-lazy="host.static + img.img_url" :alt="img.name" class="img-responsive">
@@ -36,13 +37,15 @@
         </div>
       </div>
     </div>
+    <strong>{{this.active}}</strong>
   </Contain>
 </template>
 
 <script>
 import Contain from 'components/contain/contain'
-import {queryIndexInfo} from 'api/index'
-// import {mapGetters} from 'vuex'
+import Search from 'components/search/search'
+// import {queryIndexInfo, test} from 'api/index'
+import {mapGetters} from 'vuex'
 
 export default {
   data () {
@@ -60,29 +63,32 @@ export default {
     }
   },
   methods: {
-    _queryIndexInfo () {
-      let param = '?method=Advertisement.showV2&v=1.0&cityId=1&position=home_top%2Ctips%2Cclassification%2Chome_floor_v2%2Cactivity%2Cmagazine&channel=wap&_=1525223845808'
-      queryIndexInfo(param).then(res => {
-        this.sliders = res.data[0].data
-        this.tips = res.data[1].data
-        this.classification = res.data[2].data
-        this.floorV2 = res.data[3].data
-        this.activity = res.data[4].data
-        this.magazine = res.data[5].data
-      })
-      console.log(this.tabbarActive)
-    }
+    // _queryIndexInfo () {
+    //   let param = '?method=Advertisement.showV2&v=1.0&cityId=1&position=home_top%2Ctips%2Cclassification%2Chome_floor_v2%2Cactivity%2Cmagazine&channel=wap&_=1525223845808'
+    //   queryIndexInfo(param).then(res => {
+    //     this.sliders = res.data[0].data
+    //     this.tips = res.data[1].data
+    //     this.classification = res.data[2].data
+    //     this.floorV2 = res.data[3].data
+    //     this.activity = res.data[4].data
+    //     this.magazine = res.data[5].data
+    //   })
+    //   console.log(this.tabbarActive)
+    // }
   },
   created () {
-    this._queryIndexInfo()
+    // this._queryIndexInfo()
+    // test()
+    this.active = this.tabbarAcitve
   },
   computed: {
-    // ...mapGetters({
-    //   tabbarActive: 'setTabbarActive'
-    // })
+    ...mapGetters([
+      'tabbarAcitve'
+    ])
   },
   components: {
-    Contain
+    Contain,
+    Search
   }
 }
 </script>
