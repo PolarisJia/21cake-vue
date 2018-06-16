@@ -4,11 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import vueResource from 'vue-resource'
 
 import { Tabbar, TabbarItem, Icon, Swipe, SwipeItem, Lazyload, Row, Col } from 'vant'
 
 Vue.config.productionTip = false
-
+Vue.use(vueResource)
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
 Vue.use(Icon)

@@ -1,6 +1,6 @@
 <template>
   <Contain>
-    <Search></Search>
+    <Search :show="false" :location="false"></Search>
     <van-swipe :autoplay="5000">
       <van-swipe-item v-for="(img, i) in sliders" :key="i">
         <img v-lazy="host.static + img.img_url" :alt="img.name" class="img-responsive">
@@ -9,7 +9,7 @@
     <div class="tips">
       <ul>
         <li v-for="(tip, i) in tips" :key="i">
-          <van-icon name="warn"></van-icon>{{tip}}
+          <van-icon name="info-o"></van-icon>{{tip}}
         </li>
       </ul>
     </div>
@@ -37,21 +37,42 @@
         </div>
       </div>
     </div>
-    <strong>{{this.active}}</strong>
+    <div class="activity" v-for="a in activity" :key="a.title">
+      <p class="title"><span class="l">{{a.title}}</span></p>
+      <ul>
+        <li v-for="(d, i) in a.data" :key="i + d.name">
+          <div class="desc l">
+            <p>{{d.name}}</p>
+            <p>{{d.remain}}</p>
+          </div>
+          <img v-lazy="host.static + d.img_url" :alt="d.name" class="l">
+        </li>
+      </ul>
+    </div>
+    <div class="magazine" v-for="m in magazine" :key="m.title">
+      <p class="title"><span class="l">{{m.title}}</span></p>
+      <ul>
+        <li v-for="(d, i) in m.data" :key="i + d.name">
+          <img v-lazy="host.static + d.banner" :alt="d.name">
+          <span>{{d.name}}</span>
+        </li>
+      </ul>
+    </div>
+    <p class="no-more">————— 我也是有底线的 —————</p>
   </Contain>
 </template>
 
 <script>
 import Contain from 'components/contain/contain'
 import Search from 'components/search/search'
-// import {queryIndexInfo, test} from 'api/index'
+import {queryIndexInfo} from 'api/index-vue-resource'
 import {mapGetters} from 'vuex'
 
 export default {
   data () {
     return {
       host: {
-        static: 'http://static.21cake.com/'
+        static: 'https://images.weserv.nl/?url=static.21cake.com/'
       },
       sliders: [],
       tips: [],
@@ -63,22 +84,20 @@ export default {
     }
   },
   methods: {
-    // _queryIndexInfo () {
-    //   let param = '?method=Advertisement.showV2&v=1.0&cityId=1&position=home_top%2Ctips%2Cclassification%2Chome_floor_v2%2Cactivity%2Cmagazine&channel=wap&_=1525223845808'
-    //   queryIndexInfo(param).then(res => {
-    //     this.sliders = res.data[0].data
-    //     this.tips = res.data[1].data
-    //     this.classification = res.data[2].data
-    //     this.floorV2 = res.data[3].data
-    //     this.activity = res.data[4].data
-    //     this.magazine = res.data[5].data
-    //   })
-    //   console.log(this.tabbarActive)
-    // }
+    _queryIndexInfo () {
+      let param = '?method=Advertisement.showV2&v=1.0&cityId=1&position=home_top%2Ctips%2Cclassification%2Chome_floor_v2%2Cactivity%2Cmagazine&channel=wap'
+      queryIndexInfo(param).then(res => {
+        this.sliders = res.data[0].data
+        this.tips = res.data[1].data
+        this.classification = res.data[2].data
+        this.floorV2 = res.data[3].data
+        this.activity = [res.data[4]]
+        this.magazine = [res.data[5]]
+      })
+    }
   },
   created () {
-    // this._queryIndexInfo()
-    // test()
+    this._queryIndexInfo()
     this.active = this.tabbarAcitve
   },
   computed: {
@@ -106,7 +125,8 @@ export default {
       color $lightPrimaryColor
       font-size 12px
       i
-        margin-right 5px
+        top 2px
+        right 5px
 .type
   ul
     li
@@ -117,7 +137,7 @@ export default {
         display inline-block
       p
         margin-top 0
-.floor
+.floor,.activity,.magazine
   width 90%
   margin 0 auto
   font-size 12px
@@ -134,8 +154,9 @@ export default {
       color $iconColor
       line-height 20px
       margin-top 5px
+.floor
   .product
-    box-shadow 0 0 8px 0 rgba(194, 194, 194, .3)
+    box-shadow()
     border-radius 6px
     margin-bottom 20px
     overflow hidden
@@ -156,4 +177,41 @@ export default {
         color $primaryColor
         font-size 16px
         margin-right 10px
+.activity
+  margin-bottom 20px
+  li
+    height 150px
+    box-shadow()
+    .desc
+      width 35%
+      p
+        padding-left 10px
+    img
+      width 65%
+      height 150px
+.magazine
+  ul
+    width 100%
+    height 150px
+    overflow hidden
+    overflow-x scroll
+    white-space nowrap
+    li
+      display inline-block
+      width 70%
+      height 145px
+      overflow hidden
+      margin-right 15px
+      white-space normal
+      border-radius 4px
+      box-shadow()
+      img
+        width 100%
+        height 120px
+      span
+        margin-left 10px
+.no-more
+  text-align center
+  color $dividerColor
+  font-size 12px
 </style>
