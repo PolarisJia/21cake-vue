@@ -11,7 +11,7 @@ Vue.use(Router)
 Router.prototype.$authTime = false
 
 const router = new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [{
     path: '*',
     name: '404',
