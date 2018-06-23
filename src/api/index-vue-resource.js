@@ -1,6 +1,6 @@
 const http = require('vue-resource')
 
-var _baseUrl = 'http://api.21cake.com'
+var _baseUrl = 'https://api.21cake.com'
 
 export function queryIndexInfo (param) {
   const url = _baseUrl + '/' + param

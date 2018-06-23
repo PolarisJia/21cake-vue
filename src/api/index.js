@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-// var _baseUrl = 'https://bird.ioliu.cn/v1?url=http://api.21cake.com'
+// var _baseUrl = 'https://bird.ioliu.cn/v1?url=https://api.21cake.com'
 
 var _baseUrl = '/api'
 

@@ -35,7 +35,7 @@ export default {
 
 <style lang="stylus" scoped>
 main
-  padding-bottom 50px
+  padding-top 50px
 footer
   height 50px
 </style>

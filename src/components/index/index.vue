@@ -1,6 +1,6 @@
 <template>
   <Contain>
-    <Search :show="false" :location="false"></Search>
+    <Search :location="true" class="search"></Search>
     <van-swipe :autoplay="5000">
       <van-swipe-item v-for="(img, i) in sliders" :key="i">
         <img v-lazy="host.static + img.img_url" :alt="img.name" class="img-responsive">
@@ -65,14 +65,14 @@
 <script>
 import Contain from 'components/contain/contain'
 import Search from 'components/search/search'
-import {queryIndexInfo} from 'api/index-vue-resource'
-import {mapGetters} from 'vuex'
+import { queryIndexInfo } from 'api/index-vue-resource'
+import { mapGetters } from 'vuex'
 
 export default {
   data () {
     return {
       host: {
-        static: 'https://images.weserv.nl/?url=static.21cake.com/'
+        static: 'https://static.21cake.com/'
       },
       sliders: [],
       tips: [],
@@ -115,6 +115,8 @@ export default {
 <style lang="stylus" scoped>
 @import "~common/style/variable"
 @import "~common/style/base"
+.search
+  margin-bottom 50px
 .tips,.type
   margin 10px 0
   ul

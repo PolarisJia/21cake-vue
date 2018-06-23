@@ -1,26 +1,28 @@
 <template>
-  <div class="search-container" :style="{'height': clientHeight + 'px'}" v-if="show">
+  <div class="search-container">
     <div class="search-header">
       <a href="javascript:;" class="location" v-if="location" @click="openCity = !openCity"><van-icon name="location" /><span>{{currentCity}}</span></a>
       <div class="box" :class="{'ml': !location}">
-        <div class="input">
+        <form action="#" class="input">
+          <!-- <div class="input"> -->
           <van-icon name="search" class="icon"/>
           <input type="search" autocomplete="off" placeholder="请输入名称" v-model="searchVal">
           <van-icon name="close" class="icon" @click="searchVal = ''"/>
-        </div>
-        <a href="javascript:;" class="cancel" @click="searchIng = !searchIng">取消</a>
-        <div class="input-false" v-if="!searchIng" @click="searchIng = !searchIng">
+          <!-- </div> -->
+        </form>
+        <a href="javascript:;" class="cancel" @click="searchCancel">取消</a>
+        <div class="input-false" v-if="!searchIng" @click="search($event)">
           <van-icon name="search" class="icon"/>黑森林
         </div>
       </div>
     </div>
-    <div class="search-content">
+    <div class="search-content" :class="{'open': searchIng}" :style="{'height': clientHeight + 'px'}" @touchmove="noScroll($event)">
       <ul>
         <li v-for="(v, i) in searchResult" :key="i">{{v}}</li>
       </ul>
     </div>
     <transition name="open">
-      <div class="select-city" v-if="openCity">
+      <div class="select-city" v-if="openCity" :style="{'height': clientHeight + 'px'}" @touchmove.prevent="() => false">
         <p><a href="javascript:;" class="close l" @click="openCity = !openCity">&times;</a>选择城市</p>
         <div class="city-list">
           <p>定位/最近访问</p>
@@ -60,10 +62,6 @@ export default {
     }
   },
   props: {
-    show: {
-      type: Boolean,
-      default: false
-    },
     location: {
       type: Boolean,
       default: false
@@ -71,6 +69,23 @@ export default {
     searchResult: {
       type: Array,
       default () {}
+    }
+  },
+  methods: {
+    search (e) {
+      this.searchIng = !this.searchIng
+      document.body.style.overflow = 'hidden'
+      document.body.style.position = 'relative'
+      document.querySelector('.search-header').addEventListener('touchmove', this.noScroll)
+    },
+    noScroll (e) {
+      e.preventDefault()
+    },
+    searchCancel () {
+      this.searchIng = !this.searchIng
+      document.body.style.overflow = 'visible'
+      document.body.style.position = 'static'
+      document.querySelector('.search-header').removeEventListener('touchmove', this.noScroll)
     }
   },
   created () {
@@ -84,8 +99,9 @@ export default {
 @import "~common/style/reset"
 .search-container
   width 100%
+  height 50px
   background-color #fff
-  position absolute
+  position fixed
   top 0
   left 0
   z-index 1
@@ -103,6 +119,7 @@ export default {
       text-align center
       color #fff
       i
+       top 1px
        right 3px
       span
         display inline-block
@@ -137,7 +154,7 @@ export default {
         input[type=search]
           flex-grow 1
           height 30px
-          line-height 30px
+          line-height 32px
           font-size 14px
           border 0
           padding 0
@@ -166,7 +183,12 @@ export default {
     .ml
       margin-left 10px
   .search-content
-    height 100%
+    width 100%
+    background-color #fff
+    display none
+    position absolute
+    top 50px
+    left 0
     ul
       padding 0 10px
       li
@@ -174,8 +196,11 @@ export default {
         border-bottom 1px solid $dividerColor
         &:last-child
           border-bottom 0
+  .open
+    display block
   .select-city
     width 100%
+    background #fff
     position absolute
     top 0
     left 0

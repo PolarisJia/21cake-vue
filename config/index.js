@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       // '/api': {
-      //   target: 'http://api.21cake.com/',
+      //   target: 'https://api.21cake.com/',
       //   changeOrigin: true,
       //   pathRewrite: {
       //     '^/api': ''
