@@ -4,7 +4,7 @@ const axios = require('axios')
 
 var _baseUrl = '/api'
 
-export function queryIndexInfo (param) {
+export function queryIndexData(param) {
   const url = _baseUrl + '/' + param
   return axios.get(url).then(res => Promise.resolve(res.data))
 }

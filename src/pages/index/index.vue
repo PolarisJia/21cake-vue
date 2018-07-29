@@ -65,7 +65,7 @@
 <script>
 import Contain from 'components/contain/contain'
 import Search from 'components/search/search'
-import { queryIndexInfo } from 'api/index-vue-resource'
+import { queryIndexData } from 'api/cake-vue-resource'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -84,9 +84,9 @@ export default {
     }
   },
   methods: {
-    _queryIndexInfo () {
+    _queryIndexData () {
       let param = '?method=Advertisement.showV2&v=1.0&cityId=1&position=home_top%2Ctips%2Cclassification%2Chome_floor_v2%2Cactivity%2Cmagazine&channel=wap'
-      queryIndexInfo(param).then(res => {
+      queryIndexData(param).then(res => {
         this.sliders = res.data[0].data
         this.tips = res.data[1].data
         this.classification = res.data[2].data
@@ -97,7 +97,7 @@ export default {
     }
   },
   created () {
-    this._queryIndexInfo()
+    this._queryIndexData()
     this.active = this.tabbarAcitve
   },
   computed: {

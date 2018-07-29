@@ -6,7 +6,7 @@
         <form action="#" class="input">
           <!-- <div class="input"> -->
           <van-icon name="search" class="icon"/>
-          <input type="search" autocomplete="off" placeholder="请输入名称" v-model="searchVal">
+          <input type="search" autocomplete="off" placeholder="请输入名称" autofocus v-model.trim="searchVal">
           <van-icon name="close" class="icon" @click="searchVal = ''"/>
           <!-- </div> -->
         </form>
