@@ -4,11 +4,9 @@
       <a href="javascript:;" class="location" v-if="location" @click="openCity = !openCity"><van-icon name="location" /><span>{{currentCity}}</span></a>
       <div class="box" :class="{'ml': !location}">
         <form action="#" class="input">
-          <!-- <div class="input"> -->
           <van-icon name="search" class="icon"/>
           <input type="search" autocomplete="off" placeholder="请输入名称" autofocus v-model.trim="searchVal">
           <van-icon name="close" class="icon" @click="searchVal = ''"/>
-          <!-- </div> -->
         </form>
         <a href="javascript:;" class="cancel" @click="searchCancel">取消</a>
         <div class="input-false" v-if="!searchIng" @click="search($event)">
@@ -104,7 +102,7 @@ export default {
   position fixed
   top 0
   left 0
-  z-index 1
+  z-index 999
   .search-header
     width 100%
     height 50px

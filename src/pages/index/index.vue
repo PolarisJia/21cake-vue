@@ -85,8 +85,7 @@ export default {
   },
   methods: {
     _queryIndexData () {
-      let param = '?method=Advertisement.showV2&v=1.0&cityId=1&position=home_top%2Ctips%2Cclassification%2Chome_floor_v2%2Cactivity%2Cmagazine&channel=wap'
-      queryIndexData(param).then(res => {
+      queryIndexData(`?method=Advertisement.showV2&v=1.0&cityId=1&position=home_top%2Ctips%2Cclassification%2Chome_floor_v2%2Cactivity%2Cmagazine&channel=wap`).then(res => {
         this.sliders = res.data[0].data
         this.tips = res.data[1].data
         this.classification = res.data[2].data

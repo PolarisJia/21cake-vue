@@ -4,7 +4,14 @@ const axios = require('axios')
 
 var _baseUrl = '/api'
 
-export function queryIndexData(param) {
+// 获取首页数据
+export function queryIndexData (param) {
+  const url = _baseUrl + '/' + param
+  return axios.get(url).then(res => Promise.resolve(res.data))
+}
+
+// 获取分类数据
+export function queryGallery (param) {
   const url = _baseUrl + '/' + param
   return axios.get(url).then(res => Promise.resolve(res.data))
 }

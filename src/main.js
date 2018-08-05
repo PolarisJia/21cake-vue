@@ -5,8 +5,9 @@ import App from './App'
 import router from './router'
 import store from './store'
 import vueResource from 'vue-resource'
+import 'font-awesome/css/font-awesome.min.css'
 
-import { Tabbar, TabbarItem, Icon, Swipe, SwipeItem, Lazyload, Row, Col } from 'vant'
+import { Tabbar, TabbarItem, Icon, Swipe, SwipeItem, Lazyload, Row, Col, List, Popup, Toast } from 'vant'
 
 Vue.config.productionTip = false
 Vue.use(vueResource)
@@ -18,6 +19,10 @@ Vue.use(SwipeItem)
 Vue.use(Lazyload)
 Vue.use(Row)
 Vue.use(Col)
+Vue.use(List)
+Vue.use(Popup)
+
+Vue.prototype.$toast = Toast
 
 /* eslint-disable no-new */
 new Vue({
