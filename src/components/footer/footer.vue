@@ -1,7 +1,7 @@
 <template>
   <van-tabbar v-model="active">
     <van-tabbar-item icon="home" to="/index">首页</van-tabbar-item>
-    <van-tabbar-item icon="wap-nav" to="/gallery">分类</van-tabbar-item>
+    <van-tabbar-item icon="wap-nav" to="/gallery">列表</van-tabbar-item>
     <van-tabbar-item icon="cart" to="/cart">购物车</van-tabbar-item>
     <van-tabbar-item icon="contact" to="/mycake">我的</van-tabbar-item>
   </van-tabbar>

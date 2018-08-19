@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
     "font-awesome": "^4.7.0",
-    "vant": "^1.1.1",
+    "nedb": "^1.8.0",
+    "vant": "^1.1.16",
     "vue": "^2.5.2",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1",

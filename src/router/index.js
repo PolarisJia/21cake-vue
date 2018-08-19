@@ -6,6 +6,7 @@ const Notfound = () => import('components/notfound/notfound')
 // 首页
 const Index = () => import('pages/index/index')
 const Gallery = () => import('pages/gallery/gallery')
+const Goods = () => import('pages/goods/goods')
 const Cart = () => import('pages/cart/cart')
 const MyCake = () => import('pages/myCake/myCake')
 
@@ -41,6 +42,10 @@ const router = new Router({
       title: '蛋糕_蛋糕网上订购_5小时新鲜送达_21Cake官网'
     },
     component: Gallery
+  }, {
+    path: '/goods',
+    name: 'goods',
+    component: Goods
   }, {
     path: '/cart',
     name: 'cart',
