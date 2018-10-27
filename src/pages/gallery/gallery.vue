@@ -162,6 +162,8 @@ export default {
 <style lang="stylus" scoped>
 @import "~common/style/variable"
 @import "~common/style/base"
+.container
+  margin-top 120px
 .fixed
   position fixed
   left 0

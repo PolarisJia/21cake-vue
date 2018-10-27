@@ -1,7 +1,7 @@
 <template>
   <Contain>
     <Search :location="true" class="search"></Search>
-    <van-swipe :autoplay="5000">
+    <van-swipe :autoplay="5000" class="swiper">
       <van-swipe-item v-for="(img, i) in sliders" :key="i">
         <img v-lazy="host.static + img.img_url" :alt="img.name" class="img-responsive">
       </van-swipe-item>
@@ -114,6 +114,8 @@ export default {
 <style lang="stylus" scoped>
 @import "~common/style/variable"
 @import "~common/style/base"
+.swiper
+  margin-top 50px
 .search
   margin-bottom 50px
 .tips,.type

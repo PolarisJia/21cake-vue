@@ -22,8 +22,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-main
-  padding-top 50px
 footer
   height 50px
 </style>

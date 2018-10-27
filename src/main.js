@@ -7,7 +7,7 @@ import store from './store'
 import vueResource from 'vue-resource'
 import 'font-awesome/css/font-awesome.min.css'
 
-import { Tabbar, TabbarItem, Icon, Swipe, SwipeItem, Lazyload, Row, Col, List, Popup, Toast } from 'vant'
+import { Tabbar, TabbarItem, Icon, Swipe, SwipeItem, Lazyload, Row, Col, List, Popup, Toast, Checkbox, Stepper, Cell, CellGroup } from 'vant'
 
 Vue.config.productionTip = false
 Vue.use(vueResource)
@@ -21,6 +21,10 @@ Vue.use(Row)
 Vue.use(Col)
 Vue.use(List)
 Vue.use(Popup)
+Vue.use(Checkbox)
+Vue.use(Stepper)
+Vue.use(Cell)
+Vue.use(CellGroup)
 
 Vue.prototype.$toast = Toast
 
