@@ -3,7 +3,10 @@
     <div class="container">
       <div class="user">
         <div class="filter"></div>
-        <div class="head-picture">1111</div>
+        <div class="head-picture">
+          <i></i>
+          WangJia
+        </div>
       </div>
       <div class="account">
         <p>
@@ -60,4 +63,26 @@ export default {
       margin 80px auto 0
       background-color #fff
       z-index 2
+      i
+        display inline-block
+        width 70px
+        height 70px
+        background url('~common/images/300x300.jpg') no-repeat
+        background-size cover
+        vertical-align -webkit-baseline-middle
+        border-radius 70px
+        margin-left 10px
+        margin-top -10px
+  .account
+    height 50px
+    p
+      width 50%
+      height 50px
+      line-height 50px
+      margin 0
+      float left
+      text-align center
+      box-sizing border-box
+      &:first-child
+        border-right 1px solid $dividerColor
 </style>

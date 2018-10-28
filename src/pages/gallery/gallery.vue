@@ -21,7 +21,7 @@
             </div>
             <p class="en-nam substring">{{g.en_name}}</p>
             <p class="name substring">{{g.name}}</p>
-            <div class="opera"><span class="l substring"><output>￥{{g.price}}</output>/{{g.spec}}</span><a href="javascript:;" class="r add-cart fa fa-cart-plus" @click="getGoodsSize(g.cake_goods_id)"></a></div>
+            <div class="opera"><span class="l substring"><output>￥{{g.price}}</output>/{{g.spec}}</span><a href="javascript:;" class="r add-cart fa fa-cart-plus" @click="getGoodsSize(g)"></a></div>
           </div>
         </van-list>
       </div>
@@ -89,7 +89,8 @@ export default {
         booking_hour_limited: '',
         img_url: ''
       }],
-      goodsSaleTime: {}
+      goodsSaleTime: {},
+      currentGoods: {}
     }
   },
   methods: {
@@ -110,8 +111,9 @@ export default {
         clearTimeout(timer)
       }, 800)
     },
-    getGoodsSize (id) {
-      queryGoodsSize(`?method=Goods.goodsDetail&v=1.0&cityId=2&channel=wap&goodsId=${id}&_=${+new Date()}`).then(res => {
+    getGoodsSize (goods) {
+      this.currentGoods = goods
+      queryGoodsSize(`?method=Goods.goodsDetail&v=1.0&cityId=2&channel=wap&goodsId=${goods.cake_goods_id}&_=${+new Date()}`).then(res => {
         if (res.code !== 0) {
           this.$toast({message: res.message ? res.message : '获取商品规格失败', type: 'fail'})
         } else {
@@ -146,7 +148,40 @@ export default {
       this.goodsCurrentSize = 0
     },
     addGoodsToCart () {
-      // 1
+      let cart = {
+        'en_name': this.currentGoods.en_name,
+        'cn_name': this.currentGoods.name,
+        'spec': this.goodsSizes[this.goodsCurrentSize].spec,
+        'price': this.goodsSizes[this.goodsCurrentSize].price,
+        'cutlery_content': this.goodsSizes[this.goodsCurrentSize].cutlery_content,
+        'img_url': this.currentGoods.img_url,
+        'num': 1,
+        'goods_id': this.currentGoods.cake_goods_id
+      }
+      this.$db.find({'goods_id': this.currentGoods.cake_goods_id}, (err, docs) => {
+        if (docs.length && docs[0].spec === this.goodsSizes[this.goodsCurrentSize].spec) {
+          let num = docs[0].num
+          num++
+          this.$db.update({'goods_id': this.currentGoods.cake_goods_id}, {$set: {'num': num}}, {}, (err, numReplaced) => {
+            if (numReplaced) {
+              this.addCart = false
+              this.$toast({message: '加入成功', type: 'success'})
+            } else {
+              console.log(err)
+            }
+          })
+        } else {
+          this.$db.insert(cart, (err, ret) => {
+            if (Object.values(ret).length) {
+              this.addCart = false
+              this.$toast({message: '加入成功', type: 'success'})
+            } else {
+              console.log(err)
+            }
+          })
+        }
+        console.log(err)
+      })
     }
   },
   created () {

@@ -13,6 +13,16 @@ export default {
     return {
       active: 0
     }
+  },
+  mounted () {
+    if (sessionStorage['TABBARACTIVE']) {
+      this.active = sessionStorage['TABBARACTIVE'] - 0
+    } else {
+      this.active = 0
+    }
+  },
+  beforeDestroy () {
+    sessionStorage['TABBARACTIVE'] = this.active
   }
 }
 </script>

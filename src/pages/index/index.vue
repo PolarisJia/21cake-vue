@@ -14,7 +14,7 @@
       </ul>
     </div>
     <div class="type">
-      <ul>
+      <ul class="clearfix">
         <li v-for="(cls, i) in classification" :key="i">
           <img v-lazy="host.static + cls.img_url" :alt="cls.name">
           <p>{{cls.name}}</p>
@@ -66,8 +66,6 @@
 import Contain from 'components/contain/contain'
 import Search from 'components/search/search'
 import { queryIndexData } from 'api/cake-vue-resource'
-import { mapGetters } from 'vuex'
-
 export default {
   data () {
     return {
@@ -79,8 +77,7 @@ export default {
       classification: [],
       floorV2: [],
       activity: [],
-      magazine: [],
-      active: 0
+      magazine: []
     }
   },
   methods: {
@@ -97,12 +94,6 @@ export default {
   },
   created () {
     this._queryIndexData()
-    this.active = this.tabbarAcitve
-  },
-  computed: {
-    ...mapGetters([
-      'tabbarAcitve'
-    ])
   },
   components: {
     Contain,
@@ -118,7 +109,7 @@ export default {
   margin-top 50px
 .search
   margin-bottom 50px
-.tips,.type
+.tips
   margin 10px 0
   ul
     display flex
@@ -134,7 +125,11 @@ export default {
   ul
     li
       width 25%
+      height 110px
       color $primaryText
+      text-align center
+      font-size 12px
+      float left
       img
         width 75%
         display inline-block

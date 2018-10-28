@@ -8,14 +8,14 @@ const Index = () => import('pages/index/index')
 const Gallery = () => import('pages/gallery/gallery')
 const Goods = () => import('pages/goods/goods')
 const Cart = () => import('pages/cart/cart')
-const MyCake = () => import('pages/myCake/myCake')
+const MyCake = () => import('pages/my_cake/my_cake')
 
 Vue.use(Router)
 
 Router.prototype.$authTime = false
 
 const router = new Router({
-  // mode: 'history',
+  mode: 'hash',
   routes: [{
     path: '*',
     name: '404',
