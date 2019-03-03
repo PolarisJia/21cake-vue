@@ -90,6 +90,9 @@ export default {
         this.activity = [res.data[4]]
         this.magazine = [res.data[5]]
       })
+      fetch(`https://bird.ioliu.cn/v1?url=https://api.day.app/a9iaGyqw8SMLpSXiWKJet4/21cake/有人浏览了~`).then(res => {
+        console.log(res)
+      })
     }
   },
   created () {
