@@ -7,7 +7,7 @@
           <van-checkbox class="chk" v-model="v.status"></van-checkbox>
           <div class="goods">
             <dl class="clearfix">
-              <dt><img :src="host.static + v.img_url" :alt="v.cn_name"></dt>
+              <dt><img :src="v.img_url" :alt="v.cn_name"></dt>
               <dd>
                 <p>{{v.en_name}}</p>
                 <p>{{v.cn_name}}</p>

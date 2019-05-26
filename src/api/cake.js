@@ -1,8 +1,8 @@
 const axios = require('axios')
 
-// var _baseUrl = 'https://bird.ioliu.cn/v1?url=https://api.21cake.com'
+var _baseUrl = 'https://bird.ioliu.cn/v1?url=https://api.21cake.com'
 
-var _baseUrl = '/api'
+// var _baseUrl = '/api'
 
 // 获取首页数据
 export function queryIndexData (param) {
@@ -23,7 +23,7 @@ export function queryGoodsSize (param) {
 }
 
 // 获取商品详情
-export function queryGoodsDetails(param) {
-  const url = _baseUrl + '/' + param
+export function queryGoodsDetails (param) {
+  const url = `https://bird.ioliu.cn/v1?url=https://m.21cake.com/goods-${param}.html`
   return axios.get(url).then(res => Promise.resolve(res.data))
 }

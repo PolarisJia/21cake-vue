@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import { queryGoodsDetails, queryGoodsSize } from 'api/cake-vue-resource'
+import { queryGoodsDetails, queryGoodsSize } from 'api/cake'
 import Cheerio from 'cheerio'
 export default {
   data () {

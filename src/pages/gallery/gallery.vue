@@ -49,7 +49,7 @@
 <script>
 import Contain from 'components/contain/contain'
 import Search from 'components/search/search'
-import { queryGallery, queryGoodsSize } from 'api/cake-vue-resource'
+import { queryGallery, queryGoodsSize } from 'api/cake'
 export default {
   data () {
     return {
@@ -109,7 +109,7 @@ export default {
         this.loading = false
         if (this.startIndex > this.goodsCache.length) this.finished = true
         clearTimeout(timer)
-      }, 800)
+      }, 1200)
     },
     getGoodsSize (goods) {
       this.currentGoods = goods

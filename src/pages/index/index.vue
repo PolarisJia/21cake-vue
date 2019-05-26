@@ -65,7 +65,7 @@
 <script>
 import Contain from 'components/contain/contain'
 import Search from 'components/search/search'
-import { queryIndexData } from 'api/cake-vue-resource'
+import { queryIndexData } from 'api/cake'
 export default {
   data () {
     return {
@@ -90,9 +90,11 @@ export default {
         this.activity = [res.data[4]]
         this.magazine = [res.data[5]]
       })
-      fetch(`https://bird.ioliu.cn/v1?url=https://api.day.app/a9iaGyqw8SMLpSXiWKJet4/21cake/有人浏览了~`).then(res => {
-        console.log(res)
-      })
+      // fetch('https://bird.ioliu.cn/v1?url=https://api.day.app/a9iaGyqw8SMLpSXiWKJet4/21Cake/有人浏览了~').then(res => {
+      //   if (res.ok) {
+      //     res.json().then(r => console.log(r))
+      //   }
+      // })
     }
   },
   created () {

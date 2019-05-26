@@ -1,21 +1,45 @@
-# 21cake
+# 21cake-vue
+仿21cake vue版
 
-> A Vue.js project
+## 说明
 
-## Build Setup
+这是一个平时看心情写的项目，仅供自己学习。
+**温馨提示：本项目纯属于学习，正常购买下单请选使用   [21cake-m站](https://m.21cake.com/)**
 
-``` bash
-# install dependencies
-npm install
+开工：2018-05-05
+今天终于开动啦
 
-# serve with hot reload at localhost:8080
-npm run dev
+更新：2019-05-26
+不知不觉一年了，功能还没有实现一半，看来我真的不是一个很有积极性的人，QAQ
 
-# build for production with minification
-npm run build
+## 技术栈
+vue + vuex + vant + webpack3 + axios + stylus
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+关于跨域：本地可以通过配置nginx反向代理来解决，但由于自己没有云主机，只好选择部署在gh-pages上，那么跨域问题也就随之而来了，使用vue-resource确实可以解决，但是官方都不更新了，我们也不能“走老路”啊，只好寻求他路，历尽千辛万苦终于找到了一家免费的数据接口代理[JsonBird](https://bird.ioliu.cn/)，使用一段时间，还算比较稳定，个人使用问题不大，感谢作者无私奉献。
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 预览
+[查看demo](https://github.com/wangjia06/21cake-vue)（请打开控制台进入手机模式）
+
+<!-- 建议您使用手机扫描下方的二维码
+![21cake-qrcode-link](http://i67.tinypic.com/2lifw2u.png) -->
+
+## 目标
+
+- [ ] 定位功能 ------已完成
+- [ ] 选择城市 ------已完成
+- [x] 展示所选城市的商品 ------已完成
+- [ ] 搜索商品 ------ api限制，暂不实现
+- [ ] 根据销量、价格排序和品类、口味筛选 ------ api限制，暂不实现
+- [x] 选择商品规格  ------已完成
+- [x] 加入购物车
+- [ ] 删除商品
+- [x] 修改数量
+- [ ] 单选/多选
+- [ ] 付款
+- [ ] 账户信息
+- [ ] 上传头像
+- [ ] 我的订单
+- [ ] 订单详情
+- [ ] 我的收藏
+- [ ] 收货地址
+- [ ] 登录/注册
