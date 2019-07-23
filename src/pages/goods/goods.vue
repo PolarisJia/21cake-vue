@@ -59,10 +59,10 @@
         <img v-for="(v, i) in imgs" :key="i" :src="v" class="img-responsive">
       </div>
       <van-goods-action>
-        <van-goods-action-mini-btn icon="chat" text="客服" />
-        <van-goods-action-mini-btn icon="cart" text="购物车" to="/cart" />
-        <van-goods-action-big-btn text="加入购物车" @click="addCart"/>
-        <van-goods-action-big-btn text="立即购买" primary/>
+        <van-goods-action-icon icon="chat" text="客服" />
+        <van-goods-action-icon icon="cart" text="购物车" to="/cart" />
+        <van-goods-action-button text="加入购物车" @click="addCart"/>
+        <van-goods-action-button text="立即购买" primary/>
       </van-goods-action>
     </div>
   </div>

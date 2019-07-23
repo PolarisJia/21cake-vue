@@ -17,10 +17,10 @@
         </p>
       </div>
       <van-cell-group>
-        <van-cell title="我的订单" is-link icon="pending-orders" />
+        <van-cell title="我的订单" is-link icon="orders-o" />
         <van-cell title="地址管理" is-link icon="logistics" />
-        <van-cell title="优惠券" is-link icon="idcard" />
-        <van-cell title="余额充值" is-link icon="gold-coin" />
+        <van-cell title="优惠券" is-link icon="credit-pay" />
+        <van-cell title="余额充值" is-link icon="gold-coin-o" />
       </van-cell-group>
     </div>
   </Contain>

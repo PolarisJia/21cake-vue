@@ -7,7 +7,7 @@ import store from './store'
 import 'font-awesome/css/font-awesome.min.css'
 import Nedb from 'nedb'
 
-import { Tabbar, TabbarItem, Icon, Swipe, SwipeItem, Lazyload, Row, Col, List, Popup, Toast, Checkbox, Stepper, Cell, CellGroup, GoodsAction, GoodsActionBigBtn, GoodsActionMiniBtn, SwipeCell } from 'vant'
+import { Tabbar, TabbarItem, Icon, Swipe, SwipeItem, Lazyload, Row, Col, List, Popup, Toast, Checkbox, Stepper, Cell, CellGroup, GoodsAction, GoodsActionButton, GoodsActionIcon, SwipeCell } from 'vant'
 
 const db = new Nedb({
   filename: '/data/cart.db',
@@ -31,8 +31,8 @@ Vue.use(Stepper)
 Vue.use(Cell)
 Vue.use(CellGroup)
 Vue.use(GoodsAction)
-Vue.use(GoodsActionBigBtn)
-Vue.use(GoodsActionMiniBtn)
+Vue.use(GoodsActionButton)
+Vue.use(GoodsActionIcon)
 Vue.use(SwipeCell)
 
 Vue.prototype.$toast = Toast
