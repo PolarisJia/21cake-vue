@@ -13,15 +13,21 @@
 
 更新：2019-05-26
 
-不知不觉一年了，功能还没有实现一半，看来我真的不是一个很有积极性的人，QAQ
+不知不觉一年了，功能还没有实现一半，看来我真的不是一个很有积极性的人，Orz
 
 ## 技术栈
-vue + vuex + vant + webpack3 + axios + stylus
+vue + vuex + vant + webpack3 + fetch + stylus
 
-关于跨域：本地可以通过配置nginx反向代理来解决，但由于自己没有云主机，只好选择部署在gh-pages上，那么跨域问题也就随之而来了，使用vue-resource确实可以解决，但是官方都不更新了，我们也不能“走老路”啊，只好寻求他路，历尽千辛万苦终于找到了一家免费的数据接口代理[JsonBird](https://bird.ioliu.cn/)，使用一段时间，还算比较稳定，个人使用问题不大，感谢作者无私奉献。
+api：
+使用的全部都是21cake自家的api
+
+关于跨域：
+本地可以通过配置nginx反向代理来解决，但是我是部署在gh-pages上，那么跨域怎么办？？？
+1.使用vue-resource解决；
+2.使用第三方接口代理[JsonBird](https://bird.ioliu.cn/)解决，个人使用问题不大，此处感谢作者无私奉献。
 
 ## 预览
-[查看demo](https://wangjia06.github.io/21cake-vue/)（请打开控制台进入手机模式）
+[查看demo](https://superjiajia.github.io/21cake-vue/)（请打开控制台进入手机模式）
 
 <!-- 建议您使用手机扫描下方的二维码
 ![21cake-qrcode-link](http://i67.tinypic.com/2lifw2u.png) -->
